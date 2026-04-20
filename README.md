@@ -1,4 +1,4 @@
-# Lost & Found Hub
+# TraceIt
 
 A React application for campus/community lost and found items.
 
@@ -35,3 +35,12 @@ Lost items posted on WhatsApp groups get buried quickly. This app provides a cen
 - `src/context/` - React context for state management
 - `src/services/` - Firebase configuration
 - `src/utils/` - Types and utilities
+
+## Demo Video
+
+
+https://github.com/user-attachments/assets/f3929fe4-3ac8-44e9-8a75-76eeea3e4df6
+
+
+
+
