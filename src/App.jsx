@@ -8,7 +8,7 @@ import AddItem from './pages/AddItem';
 import ItemDetails from './pages/ItemDetails';
 import { S } from './styles/theme';
 
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
   if (loading) return <div style={{ textAlign: 'center', paddingTop: '80px' }}>Loading...</div>;
   return user ? <>{children}</> : <Navigate to="/login" />;
@@ -18,7 +18,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div style={S.app as React.CSSProperties}>
+        <div style={S.app}>
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

@@ -4,7 +4,7 @@ import { auth } from '../services/firebase';
 import { useNavigate, Link } from 'react-router-dom';
 import { S } from '../styles/theme';
 
-const Signup: React.FC = () => {
+const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -12,7 +12,7 @@ const Signup: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSignup = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
@@ -20,7 +20,6 @@ const Signup: React.FC = () => {
       setError('Passwords do not match');
       return;
     }
-
     if (password.length < 6) {
       setError('Password must be at least 6 characters');
       return;
@@ -30,7 +29,7 @@ const Signup: React.FC = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       navigate('/dashboard');
-    } catch (err: any) {
+    } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
@@ -38,20 +37,21 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div style={S.authBox as React.CSSProperties}>
-      <div style={S.authCard as React.CSSProperties}>
+    <div style={S.authBox}>
+      <div style={S.authCard}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24 }}>
           <div style={S.logoDot} />
           <span style={{ fontWeight: 700, fontSize: 15, color: '#f0ede8' }}>Trace It</span>
         </div>
-        <h2 style={S.authTitle as React.CSSProperties}>Create account</h2>
-        <p style={S.authSub as React.CSSProperties}>Join your campus community.</p>
 
-        <form onSubmit={handleSignup}>
-          <div style={S.formRow as React.CSSProperties}>
-            <label style={S.label as React.CSSProperties}>Email</label>
+        <h2 style={S.authTitle}>Create account</h2>
+        <p style={S.authSub}>Join your campus community.</p>
+
+        <form onSubmit={handleSubmit}>
+          <div style={S.formRow}>
+            <label style={S.label}>Email</label>
             <input
-              style={S.input as React.CSSProperties}
+              style={S.input}
               type="email"
               placeholder="you@college.edu"
               value={email}
@@ -59,10 +59,10 @@ const Signup: React.FC = () => {
               required
             />
           </div>
-          <div style={S.formRow as React.CSSProperties}>
-            <label style={S.label as React.CSSProperties}>Password</label>
+          <div style={S.formRow}>
+            <label style={S.label}>Password</label>
             <input
-              style={S.input as React.CSSProperties}
+              style={S.input}
               type="password"
               placeholder="••••••••"
               value={password}
@@ -71,10 +71,10 @@ const Signup: React.FC = () => {
             />
             <p style={{ fontSize: 11, color: '#555', marginTop: 4 }}>At least 6 characters</p>
           </div>
-          <div style={S.formRow as React.CSSProperties}>
-            <label style={S.label as React.CSSProperties}>Confirm Password</label>
+          <div style={S.formRow}>
+            <label style={S.label}>Confirm Password</label>
             <input
-              style={S.input as React.CSSProperties}
+              style={S.input}
               type="password"
               placeholder="••••••••"
               value={confirmPassword}
@@ -92,16 +92,16 @@ const Signup: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            style={{ ...S.btnPrimary, width: '100%', padding: '11px', marginTop: 8, fontSize: 14, opacity: loading ? 0.5 : 1 } as React.CSSProperties}
+            style={{ ...S.btnPrimary, width: '100%', padding: '11px', marginTop: 8, fontSize: 14, opacity: loading ? 0.5 : 1 }}
           >
             {loading ? 'Creating account...' : 'Create Account'}
           </button>
         </form>
 
-        <hr style={S.divider as React.CSSProperties} />
+        <hr style={S.divider} />
         <div style={{ textAlign: 'center', fontSize: 12, color: '#555' }}>
           Already have one?{' '}
-          <Link to="/login" style={{ color: '#e8533a', cursor: 'pointer', fontWeight: 600, textDecoration: 'none' }}>
+          <Link to="/login" style={{ color: '#e8533a', fontWeight: 600, textDecoration: 'none' }}>
             Sign In
           </Link>
         </div>

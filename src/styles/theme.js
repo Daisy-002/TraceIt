@@ -127,7 +127,8 @@ export const S = {
   cardTop: { display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 },
   cardTitle: { fontSize: 15, fontWeight: 600, color: "#f0ede8", margin: "0 0 4px", lineHeight: 1.3 },
   cardDesc: { fontSize: 12, color: "#666", lineHeight: 1.5, margin: 0 },
-  badge: (type: 'found' | 'lost') => ({
+  // badge is a function — no type annotation needed in plain JS
+  badge: (type) => ({
     background: type === "found" ? "#1a2e1a" : "#2a1818",
     color: type === "found" ? "#5acc6a" : "#e8533a",
     fontSize: 10,

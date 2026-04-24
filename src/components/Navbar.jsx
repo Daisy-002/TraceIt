@@ -5,7 +5,7 @@ import { auth } from '../services/firebase';
 import { useAuth } from '../context/AuthContext';
 import { S } from '../styles/theme';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -15,13 +15,14 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav style={S.navbar as React.CSSProperties}>
+    <nav style={S.navbar}>
       <Link to="/dashboard" style={{ textDecoration: 'none' }}>
         <div style={S.logo}>
           <div style={S.logoDot} />
           Trace It
         </div>
       </Link>
+
       {user && (
         <div style={S.navActions}>
           <span style={{ fontSize: 12, color: '#888' }}>{user.email}</span>
