@@ -15,7 +15,7 @@ Lost items posted on WhatsApp groups get buried quickly. This app provides a cen
 
 ## Tech Stack
 - React 19
-- TypeScript
+- JavaScript
 - Vite
 - Firebase (Auth, Firestore)
 - Tailwind CSS
@@ -24,7 +24,7 @@ Lost items posted on WhatsApp groups get buried quickly. This app provides a cen
 ## Setup
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. Set up Firebase project and update `src/services/firebase.ts` with your config
+3. Set up Firebase project and update `src/services/firebase.js` with your config
 4. Run development server: `npm run dev`
 5. Build for production: `npm run build`
 
